@@ -6,18 +6,6 @@ import (
 	"time"
 )
 
-// СТЕК
-var stack = &Stack{}
-
-// ОЧЕРЕДЬ
-var queue = &Queue{}
-
-// ХЕШ-ТАБЛИЦА
-var hashtable = &HashMap{}
-
-// МНОЖЕСТВО
-var set = &SetMap{}
-
 func main() {
 	listener, _ := net.Listen("tcp", ":6379") // открываем слушающий сокет
 	fmt.Println("Сервер запущен. Ожидание подключений...")

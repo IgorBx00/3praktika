@@ -251,16 +251,16 @@ func (hmap *HashMap) checkUrl(url string) string {
 }
 
 // СТЕК
-//var stack = &Stack{}
+var stack = &Stack{}
 
 // ОЧЕРЕДЬ
-//var queue = &Queue{}
+var queue = &Queue{}
 
 // ХЕШ-ТАБЛИЦА
-//var hashtable = &HashMap{}
+var hashtable = &HashMap{}
 
 // МНОЖЕСТВО
-//var set = &SetMap{}
+var set = &SetMap{}
 
 func Vibor(conn net.Conn, buf []byte) {
 	conn.Write([]byte("Command: ")) // пишем в сокет

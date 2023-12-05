@@ -25,15 +25,14 @@ func getUrl(shortKey string) string {
 		fmt.Println(err) // вывод ошибки при открытии TCP-соединения к серверу
 		return "Ошибка"
 	}
-	source := "HGET" + " " + shortKey + "//"
-	if n, err := conn.Write([]byte(source)); n == 0 || err != nil {
+	command := "HGET" + " " + shortKey + "//"
+	if n, err := conn.Write([]byte(command)); n == 0 || err != nil {
 		return "Erorr"
 	}
 	buff := make([]byte, 1024)
 	var n int
 	for i := 0; i < 3; i++ {
-		// получаем ответ
-		n, err = conn.Read(buff)
+		n, err = conn.Read(buff) // получаем ответ
 		if err != nil {
 			return "Erorr"
 		}
@@ -48,15 +47,14 @@ func Seturl(shortKey string, OrigUrl string) string {
 		fmt.Println(err) // вывод ошибки при открытии TCP-соединения к серверу
 		return "Ошибка"
 	}
-	source := "HSET" + " " + shortKey + " " + OrigUrl + "//"
-	if n, err := conn.Write([]byte(string(source))); n == 0 || err != nil {
+	command := "HSET" + " " + shortKey + " " + OrigUrl + "//"
+	if n, err := conn.Write([]byte(string(command))); n == 0 || err != nil {
 		return "Erorr"
 	}
 	buff := make([]byte, 1024)
 	var n int
 	for i := 0; i < 4; i++ {
-		// получаем ответ
-		n, err = conn.Read(buff)
+		n, err = conn.Read(buff) // получаем ответ
 		if err != nil {
 			break
 		}
@@ -71,15 +69,14 @@ func CheckUrl(url string) string {
 		fmt.Println(err) // вывод ошибки при открытии TCP-соединения к серверу
 		return "Ошибка"
 	}
-	source := "HURL" + " " + url + "//"
-	if n, err := conn.Write([]byte(source)); n == 0 || err != nil {
+	command := "HURL" + " " + url + "//"
+	if n, err := conn.Write([]byte(command)); n == 0 || err != nil {
 		return "Erorr"
 	}
 	buff := make([]byte, 1024)
 	var n int
 	for i := 0; i < 3; i++ {
-		// получаем ответ
-		n, err = conn.Read(buff)
+		n, err = conn.Read(buff) // получаем ответ
 		if err != nil {
 			break
 		}
